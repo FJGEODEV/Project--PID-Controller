@@ -1,0 +1,14 @@
+1: Describe the effect each of the P, I, D components had in your implementation.
+
+1) Only consider P component (Proportional) will result in car overshoot and car will turn left and right with more and more large angle. Eventully car will be offroad.
+
+2) Adding D component (Derivative) will gradually decrease car overshooting with compensation on overshooted car. The output is proportional to the change rate of CTE.
+
+3) However, only use PD component still add system error gradually, therefore, I component (Integral) will be implemented by intergral of CTE over past times to reduce system bias.
+
+The above behaviors are expected when I implemented PID controller in codes. Please see attached video fro more details.
+
+2: Describe how the final hyperparameters were chosen.
+
+The original parameter valus are chosen from online course, I tested different parameter combinations, and found out current used parameters is good so far. There is still ossilation during test, may try other different parameter combinations to fix it.
+
